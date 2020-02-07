@@ -1,5 +1,6 @@
 # osu-map-compilation-script
 A small script that help you merge multiple .osu file into 1 map
+basically a semi-automated version of this https://osu.ppy.sh/community/forums/topics/49257
 
 ### What can it do?
 Well, it can merge a bunch of osu standard maps (idk about other modes lol) into one single .osu file with correct timing and slider multiplier (as long as you provide a correct timestamp and the map is not buggy)
