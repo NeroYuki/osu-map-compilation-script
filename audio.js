@@ -3,9 +3,6 @@ const audioconcat = require("audioconcat-security-patched")
 const mp3duration = require("mp3-duration")
 const Lame = require("node-lame").Lame
 
-ffmpeg.setFfmpegPath("C:/ffmpeg/bin/ffmpeg.exe")
-ffmpeg.setFfprobePath("C:/ffmpeg/bin/ffprobe.exe")
-
 var songs = []
 var isDone = false;
 
