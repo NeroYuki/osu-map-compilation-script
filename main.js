@@ -2,6 +2,8 @@
 
 const readline = require('readline');
 const fs = require('fs');
+const audioProc = require('./audio.js');
+
 
 const rl = readline.createInterface({
 	input: process.stdin,
@@ -26,14 +28,26 @@ var colorString = '[Colours]\r\nCombo1 : 255,0,0\r\nCombo2 : 0,255,0\r\nCombo3 :
 var temp = '';
 var temppos = 0;
 var queued = false;
+var audioMergeMode = false;
 //insert default combo color
 
+console.log('---osu! Compilation Map making script by NeroYuki---')
 console.log("Map count: "); 
 
 rl.on('line', (input) => {
-	if (!count) {console.log("Map length " + (count + 1) + ": "); count++; mapLimit = input;}
+	if (mapLimit > 0 && input == -1) {
+		mapLength = [0]
+		audioMergeMode = true;
+		rl.close();
+	}
+	else if (!count) {
+		console.log("Map length " + (count + 1) + ": "); mapLimit = input; count++; 
+	}
 	else if ((count) < mapLimit) {console.log("Map length " + (count + 1) + ": "); mapLength.push(input); count++}
-	else {mapLength.push(input); console.log(mapLength); rl.close();}
+	else {
+		mapLength.push(input); console.log(mapLength); 
+		rl.close();
+	}
 });
 
 rl.on('close', () => {
@@ -59,17 +73,29 @@ rl.on('close', () => {
 	});
 	rl2.on('close', () => {
 		console.log('input done, processing...');
-		console.log(metadataInput);
-		fs.readFile('input/' + (imported+1) + '.osu', 'utf8', cb);		
-		function cb (err, data) {
-			if (err) throw err;
-			mapContent[imported] = data; 
-			imported++;
-			if (imported == mapLimit) breakdownMap(mapContent);
-			else fs.readFile('input/' + (imported+1) + '.osu', 'utf8', cb);
+		if (audioMergeMode) {
+			console.log('---Audio Merging Mode (EXPERIMENTAL)---')
+			audioProc.audio_merge(mapLimit, (song_res) => {
+				for (i in song_res) {mapLength.push(song_res[i].length)}
+				mapProcessing()
+			})
 		}
+		else mapProcessing()
 	});
 });
+
+function mapProcessing() {
+	console.log(mapLength); 
+	console.log(metadataInput);
+	fs.readFile('input/' + (imported+1) + '.osu', 'utf8', cb);		
+	function cb (err, data) {
+		if (err) throw err;
+		mapContent[imported] = data; 
+		imported++;
+		if (imported == mapLimit) breakdownMap(mapContent);
+		else fs.readFile('input/' + (imported+1) + '.osu', 'utf8', cb);
+	}
+}
 
 
 function breakdownMap(mapContent) {
