@@ -12,7 +12,7 @@ Well, it can merge a bunch of osu standard maps (idk about other modes lol) into
 ### How to use?
 - You put a bunch of maps (.osu file) into the input folder, name them 1.osu - 2.osu - etc. to determine the position of them in the output map (1-2-3-4-...)
 - After that run the main.js script (whether `node main.js` or `npm run`), type the number of map you want to merge, the length of each map's audio file in miliseconds , some metadata stuff and you are done, the result map is ready in the output folder
-**Auto Audio Merging Mode:**
+#### Auto Audio Merging Mode:
 - Put all map's audio file (also labeled 1.mp3, 2.mp3, etc. like map file) into the input folder
 - When running the script, type -1 as any map's song length and it will skip all song length input. After finishing all metadata input, wait for the script to reencode all mp3 file to the same bitrate and sample frequency and merge all audio files into one, the output audio will be labeled 'audio.mp3' and created in the output folder, and after that the .osu file will be created as normal
 
