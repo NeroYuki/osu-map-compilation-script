@@ -21,5 +21,5 @@ Well, it can merge a bunch of osu standard maps (idk about other modes lol) into
 - Maybe some bug fixes and backward compatibility, but feel free to modify it to your liking and make a pr, i wouldn't mind :D
 
 ### Changelog
-**v0.2**: Add Experimental Auto Audio Merging Mode
-**v0.1**: Initial Release
+- **v0.2**: Add Experimental Auto Audio Merging Mode
+- **v0.1**: Initial Release
