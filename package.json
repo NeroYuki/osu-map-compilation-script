@@ -10,7 +10,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "run": "node main.js",
+    "start": "node main.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "-Nero Yuki-",
