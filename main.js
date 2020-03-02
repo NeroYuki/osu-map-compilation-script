@@ -10,25 +10,25 @@ const rl = readline.createInterface({
 	output: process.stdout
 });
 
-var mapLength = [0];
-var mapContent = [];
-var metadataInput = [];
-var splitLine = [];
-var count = 0;
-var mapLimit = 0;
-var offset = 0;
-var imported = 0;
-var prevRedTime = 0;
-var mergedTimeStamp = [];
-var mergedObject = [];
-var sliderMultiplier = [];
-var metadataString = '';
-var mergedMap = '';
-var colorString = '[Colours]\r\nCombo1 : 255,0,0\r\nCombo2 : 0,255,0\r\nCombo3 : 0,0,255\r\n\r\n';
-var temp = '';
-var temppos = 0;
-var queued = false;
-var audioMergeMode = false;
+let mapLength = [0];
+let mapContent = [];
+let metadataInput = [];
+let splitLine = [];
+let count = 0;
+let mapLimit = 0;
+let offset = 0;
+let imported = 0;
+let prevRedTime = 0;
+let mergedTimeStamp = [];
+let mergedObject = [];
+let sliderMultiplier = [];
+let metadataString = '';
+let mergedMap = '';
+let colorString = '[Colours]\r\nCombo1 : 255,0,0\r\nCombo2 : 0,255,0\r\nCombo3 : 0,0,255\r\n\r\n';
+let temp = '';
+let temppos = 0;
+let queued = false;
+let audioMergeMode = false;
 //insert default combo color
 
 console.log('---osu! Compilation Map making script by NeroYuki---')
